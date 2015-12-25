@@ -1,0 +1,10 @@
+{
+  "name": "helot",
+  "description": "Painless personal bulk email",
+  "repository": "https://github.com/parisk/helot",
+  "dependencies": {
+    "markdown-it": "5.0.2",
+    "front-matter": "2.0.1",
+    "csv-parser": "1.9.1"
+  }
+}
