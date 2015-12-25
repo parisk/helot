@@ -1,6 +1,6 @@
 # Helot
 
-Personal bulk email sending should not be a pain in the ass.
+Sending personal emails to LOTS of people should not be a pain in the ass.
 
 ## Installation
 

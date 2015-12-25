@@ -1,6 +1,6 @@
 {
   "name": "helot",
-  "description": "Painless personal bulk email",
+  "description": "Painless personal email sending to LOTS of people",
   "repository": "https://github.com/parisk/helot",
   "main": "helot.js",
   "version": "1.0.0",
