@@ -8,9 +8,31 @@ To install helot just run `npm install helot` or `npm install -g helot`, in case
 
 ## Usage
 
+### Configuration
+
+Helot should be configured to send emails through an SMTP server. Configuration should happen using the environment variables documented below.
+
+#### SMTP_SERVER
+
+This is the address of the SMTP server that will send the emails. **Example value**: `smtp.gmail.com`.
+
+#### SMTP_PORT
+
+This is the port used to access the SMTP server that will send the emails. **Example value**: `465`.
+
+#### SMTP_LOGIN
+
+This is the login (username) used to authenticate with the SMTP server that will send the emails. **Example value**: `youremail@gmail.com`.
+
+**ATTENTION**: Helot will set the `From` SMTP header to this value by default.
+
+#### SMTP_PASSWORD
+
+This is the password used to authenticate with the SMTP server that will send the emails, along with the given SMTP login/username. **Example value**: `your email password`.
+
 ### Command Line Interface
 
-All you have to do to send an email to multiple recipients with Helot's CLI is run the following command in your terminal (if you have installed Helot globally):
+All you have to do to send an email to multiple recipients with Helot's CLI is run the following command in your terminal, assumint that you have installed Helot globally and have a configured environment:
 
 ```
 helot --template=/path/to/template.md --recipients=/path/to/recipients/csv
