@@ -5,6 +5,7 @@
   "dependencies": {
     "markdown-it": "5.0.2",
     "front-matter": "2.0.1",
-    "csv-parser": "1.9.1"
+    "csv-parser": "1.9.1",
+    "mustache": "2.2.1"
   }
 }
