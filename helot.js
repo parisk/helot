@@ -90,5 +90,14 @@ cli.main(function (args, options) {
     process.stderr.write('Exiting.\n');
     process.exit();
   }
+
+  var template = getTemplateFromFile(options.template);
+  var recipients = getRecipientsFromFile(options.recipients);
+
+  for (var i in recipients) {
+    var recipient = recipients[i];
+    var renderedTemplate = renderTemplate(template.template, recipient);
+    console.log('Sending template "' + options.template + '" to ' + recipient.email);
+  }
 });
 
