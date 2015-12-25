@@ -8,6 +8,7 @@ var fm = require('front-matter');
 var fs = require('fs');
 var md = require('markdown-it')('commonmark');
 var mustache = require('mustache');
+var env = require('node-env-file');
 
 function getRecipients(text) {
   var csvParserStream = csv();
@@ -70,23 +71,55 @@ cli.parse({
     template:   ['t', 'Path to front-matter enabled Markdown template file', 'path'],
     recipients:  ['r', 'Path to the CSV format recipients file', 'path'],
     output: ['o', 'Path to the file that the logs should be written, instead of stderr', 'path'],
-    dryRun: [false, 'Do nothing. Just print logs.', 'boolean', false]
+    'dry-run': [false, 'Do nothing. Just print logs.', 'boolean', false],
+    'env-file': [false, 'Path to a file that contains environment variables to be loaded', 'path', '.env']
 });
 
 cli.main(function (args, options) {
-  var invalidOptions = false;
+  /* Load .env file */
+  if (fs.statSync(options['env-file']).isFile()) {
+    env(options['env-file']);
+  }
 
+  var shouldExit = false;
+
+  /* Check validity of CLI options */
   if (!options.template) {
     process.stderr.write('You have to provide a template file.\n');
-    invalidOptions = true;
+    shouldExit = true;
   }
 
   if (!options.recipients) {
     process.stderr.write('You have to provide a recipients file.\n');
-    invalidOptions = true;
+    shouldExit = true;
   }
 
-  if (invalidOptions) {
+  var smtpServer = process.env.SMTP_SERVER;
+  var smtpPort = process.env.SMTP_PORT;
+  var smtpLogin = process.env.SMTP_LOGIN;
+  var smtpPassword = process.env.SMTP_PASSWORD;
+
+  if (!smtpServer) {
+    process.stderr.write('You should configure the SMTP_SERVER environment variable.\n');
+    shouldExit = true;
+  }
+
+  if (!smtpPort) {
+    process.stderr.write('You should configure the SMTP_PORT environment variable.\n');
+    shouldExit = true;
+  }
+
+  if (!smtpLogin) {
+    process.stderr.write('You should configure the SMTP_LOGIN environment variable.\n');
+    shouldExit = true;
+  }
+
+  if (!smtpPassword) {
+    process.stderr.write('You should configure the SMTP_PASSWORD environment variable.\n');
+    shouldExit = true;
+  }
+
+  if (shouldExit) {
     process.stderr.write('Exiting.\n');
     process.exit();
   }

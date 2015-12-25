@@ -85,6 +85,19 @@ Path to a file to which output should be written instead of `stderr`.
 
 Don't send any email. Just print the output.
 
+### env-file (optional)
+
+Path to a file that contains environment variables to load. **Default value**: `.env`
+
+#### Example env file
+```
+SMTP_SERVER=smtp.gmail.com
+SMTP_PORT=465
+SMTP_LOGIN=youremail@gmail.com
+SMTP_PASSWORD=your email password
+```
+
+
 ## License
 
 Helot is licensed under the MIT License. Detailed license info can be found at the [LICENSE](LICENSE) file.
