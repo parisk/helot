@@ -30,11 +30,12 @@ The path to the front-matter enabled Markdown template that Helot should parse a
 ---
 subject: Party next week
 ---
+
 Hello {{ name }},
 
-I would like to let you know that next week we are holding a party at Awesome Place.
+Next week we are throwing a party at **Awesome Place**. What about leaving {{ address }} and coming over?
 
-It would be great to see you there. Feel free to reach on my phone if you have any questions.
+It would be awesome to meet there and have fun.
 
 Looking forward to seeing you.
 
@@ -48,11 +49,10 @@ The path to the recipients file that will be used to send the emails and render 
 
 #### Example recipients file
 ```csv
-name, email
-Thanasis Daglis, thanasis@sourcelair.com
-Chris Konstantinidis, chris@sourcelair.com
-Mitch Karajohn, mitch@sourcelair.com
-Antonis Kalipetis, akalipetis@sourcelair.com
+name,email,address
+John Doe,john@example.com,1 Sesame str.
+Bob,bob@example.com,1024 Public Rd.
+Alice,alice@example.com,2048 Private Rd.
 ```
 
 ### output (optional)
