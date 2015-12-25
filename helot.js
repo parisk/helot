@@ -1,5 +1,8 @@
+#!/usr/bin/env node
+
 module.exports = {};
 
+var cli = require('cli');
 var csv = require('csv-parser');
 var fm = require('front-matter');
 var fs = require('fs');
@@ -61,3 +64,31 @@ module.exports.getRecipients = getRecipients;
 module.exports.getTemplate = getTemplate;
 module.exports.getTemplateFromFile = getTemplateFromFile;
 module.exports.renderTemplate = renderTemplate;
+
+/* Command Line Interface */
+cli.parse({
+    template:   ['t', 'Path to front-matter enabled Markdown template file', 'path'],
+    recipients:  ['r', 'Path to the CSV format recipients file', 'path'],
+    output: ['o', 'Path to the file that the logs should be written, instead of stderr', 'path'],
+    dryRun: [false, 'Do nothing. Just print logs.', 'boolean', false]
+});
+
+cli.main(function (args, options) {
+  var invalidOptions = false;
+
+  if (!options.template) {
+    process.stderr.write('You have to provide a template file.\n');
+    invalidOptions = true;
+  }
+
+  if (!options.recipients) {
+    process.stderr.write('You have to provide a recipients file.\n');
+    invalidOptions = true;
+  }
+
+  if (invalidOptions) {
+    process.stderr.write('Exiting.\n');
+    process.exit();
+  }
+});
+

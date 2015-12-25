@@ -13,7 +13,7 @@ To install helot just run `npm install helot` or `npm install -g helot`, in case
 All you have to do to send an email to multiple recipients with Helot's CLI is run the following command in your terminal (if you have installed Helot globally):
 
 ```
-helot send --template=/path/to/template.md --recipients=/path/to/recipients/csv
+helot --template=/path/to/template.md --recipients=/path/to/recipients/csv
 ```
 
 ### Options
