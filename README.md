@@ -4,13 +4,13 @@ Sending personal emails to LOTS of people should not be a pain in the ass. Helot
 
 ## Installation
 
-To install helot just run `npm install -g helot`.
+To install Helot just run `npm install -g helot`.
 
 ## Usage
 
 ### Command Line Interface
 
-All you have to do to send an email to multiple recipients with Helot's CLI is run the following command in your terminal, assumint that you have installed Helot globally and have a configured environment:
+To send an email to a CSV list of recipients with Helot, run the following command in your terminal:
 
 ```
 helot --template=/path/to/template.md --recipients=/path/to/recipients.csv
@@ -18,7 +18,7 @@ helot --template=/path/to/template.md --recipients=/path/to/recipients.csv
 
 #### Command Line Options
 
-The following options are available to the Command Line Interface of Helot
+The Command Line Interface of Helot can be configured using the following options:
 
 ##### template
 
