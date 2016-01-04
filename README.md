@@ -39,7 +39,7 @@ This is the address from which the emails will be sent. **Example value**: `Pari
 All you have to do to send an email to multiple recipients with Helot's CLI is run the following command in your terminal, assumint that you have installed Helot globally and have a configured environment:
 
 ```
-helot --template=/path/to/template.md --recipients=/path/to/recipients./csv
+helot --template=/path/to/template.md --recipients=/path/to/recipients.csv
 ```
 
 ### Options
