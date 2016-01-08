@@ -2,6 +2,8 @@
 
 Sending personal emails to LOTS of people should not be a pain in the ass. Helot lets you send an email to a CSV list of recipients, based on a Markdown template.
 
+This project was developed entirely in my browser using [SourceLair](https://www.sourcelair.com).
+
 ## Installation
 
 To install Helot just run `npm install -g helot`.
